@@ -11,15 +11,6 @@ permalink: /privacy.html
 
 ---
 
-> **Working draft — not legal advice.**
-> This document is a working draft prepared for the Tides Android beta launch.
-> It must be reviewed by a qualified data-protection lawyer in Spain before
-> publication to the general public. The text is intended to be accurate
-> against the codebase as of the date above; if it has drifted, the codebase
-> is the source of truth.
-
----
-
 ## In short
 
 We've tried to write this in a way you can actually read. Here is the whole
@@ -693,12 +684,3 @@ the substance) will be made without notice.
   legitimate interest (Art. 6(1)(f)).
 - **Data subject rights.** The rights set out in Articles 15–22 GDPR.
   See **Section 7**.
-
----
-
-> **Working draft — not legal advice.**
-> This document is a working draft prepared for the Tides Android beta
-> launch. It must be reviewed by a qualified data-protection lawyer in
-> Spain before publication to the general public. Where this policy
-> conflicts with the codebase, the codebase is the source of truth and
-> this policy must be updated, not the code.

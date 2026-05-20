@@ -11,13 +11,6 @@ permalink: /terms.html
 
 ---
 
-> **Working draft — not legal advice.**
-> This document is a working draft prepared for the Tides Android beta
-> launch. It must be reviewed by a qualified lawyer in Spain before
-> publication to the general public.
-
----
-
 ## In short
 
 - Tides is a private mood-and-sky journal. It is not a medical, therapy,
@@ -326,10 +319,3 @@ generally prefer to resolve them directly by email at
 - **Privacy:** `tiopioli89@gmail.com` (subject: "Privacy request")
 - **Controller / operator:** Tiago Oliver Pinheiro Oliveira, Spain
 - **Postal address:** Carrer Provença 60, 08901 Hospitalet de Llobregat, Barcelona, Spain
-
----
-
-> **Working draft — not legal advice.**
-> This document is a working draft prepared for the Tides Android beta
-> launch. It must be reviewed by a qualified lawyer in Spain before
-> publication to the general public.
