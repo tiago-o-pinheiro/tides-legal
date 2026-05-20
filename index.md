@@ -15,11 +15,6 @@ read end-to-end without dark patterns or fine print games.
   the astrology disclaimer, acceptable use, and the limits we draw on
   liability and content licensing.
 
-Both documents are working drafts pending review by a qualified lawyer
-in Spain before public publication. Where any text here conflicts with
-the Tides codebase, the codebase is the source of truth and the policy
-must be updated, not the code.
-
 ---
 
 **Contact:** [tiopioli89@gmail.com](mailto:tiopioli89@gmail.com)
