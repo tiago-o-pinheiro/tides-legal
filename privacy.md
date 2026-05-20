@@ -6,7 +6,6 @@ permalink: /privacy.html
 # Tides — Privacy Policy
 
 **Last updated:** 2026-05-20
-**Version:** 0.1 (working draft, pre-launch)
 **Contact:** tiopioli89@gmail.com
 
 ---
@@ -639,13 +638,12 @@ You can ask for a copy of the relevant transfer mechanism by writing to
 
 ## 12. Changes to this policy
 
-This is version **0.1**. The **last updated** date is at the top of this
-document.
+The **last updated** date is at the top of this document.
 
 When we change this policy in a way that affects what we collect, who
 we share it with, or what your rights are, we will:
 
-1. Update the version number and the **last updated** date.
+1. Update the **last updated** date.
 2. Show a calm notice in the app the next time you open it, summarising
    what changed.
 3. Give you the option to delete your account before any change takes

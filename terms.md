@@ -6,7 +6,6 @@ permalink: /terms.html
 # Tides — Terms of Service
 
 **Last updated:** 2026-05-20
-**Version:** 0.1 (working draft, pre-launch)
 **Contact:** tiopioli89@gmail.com
 
 ---
@@ -197,7 +196,7 @@ export your data from Settings before account data is deleted.
 
 We may change these terms over time. When we do, we will:
 
-1. Update the version number and the **last updated** date.
+1. Update the **last updated** date.
 2. Show a calm notice in the app the next time you open it,
    summarising what changed.
 3. Give you a reasonable window to delete your account if the change
