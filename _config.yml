@@ -27,3 +27,5 @@ exclude:
   - Gemfile.lock
   - vendor
   - README.md
+  - _notes
+  - data-safety.md

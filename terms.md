@@ -333,39 +333,3 @@ generally prefer to resolve them directly by email at
 > This document is a working draft prepared for the Tides Android beta
 > launch. It must be reviewed by a qualified lawyer in Spain before
 > publication to the general public.
-
----
-
-## Open questions for Tiago before publication
-
-**Resolved (2026-05-20):**
-
-- [x] **Postal address** — `Carrer Provença 60, 08901 Hospitalet de
-    Llobregat, Barcelona, Spain`. Wired into **Section 1** and
-      **Section 14**.
-- [x] **Controller name** — `Tiago Oliver Pinheiro Oliveira`. Wired
-      throughout.
-- [x] **Railway region** — confirmed `eu-west` (EU). The Privacy Policy
-      has been updated accordingly; these Terms remain in sync.
-- [x] **Minimum age** — locked at **13**. **Section 10** retains the
-      Privacy Policy cross-reference for the Spain-specific LOPDGDD
-      14-year note (guardian consent route for Spanish residents aged
-      13).
-- [x] **Liability cap** — locked at **€100** in **Section 11**, paired
-      with the EU consumer-protection carve-out. Lawyer review will
-      confirm whether the cap survives in a consumer-facing version or
-      whether to rely solely on the carve-out.
-
-**Still open:**
-
-- [ ] **Lawyer review** — mandatory before public publication.
-- [ ] **Translate to ES / CA / PT-BR.** Acceptable to defer to v1.1, by
-      a legal translator.
-- [ ] **Host on a stable HTTPS URL** alongside the Privacy Policy.
-- [ ] **Wire the in-app Terms link** to replace the "Coming soon"
-      placeholder at `apps/mobile/src/modules/onboarding/components/
-    terms-placeholder-sheet/`. Pass the spec to `tides-fullstack`.
-- [ ] **Diff against current code reality** on the day before
-      submission. If Tides has added a paid tier, scraping protections,
-      a sharing surface, or any feature outside the v1 scope, these
-      terms must be updated first.
