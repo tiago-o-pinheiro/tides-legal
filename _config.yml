@@ -1,4 +1,29 @@
-theme: jekyll-theme-minimal
 title: Tides — Legal
 description: Privacy Policy and Terms of Service for the Tides mobile app.
-show_downloads: false
+
+# No Jekyll theme — we ship a custom layout and stylesheet that matches the
+# Tides mobile app's warm-paper register. See `_layouts/default.html` and
+# `assets/css/style.scss`.
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Apply the custom layout to every Markdown page without touching the
+# pages' front matter (privacy.md, terms.md, data-safety.md, index.md).
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+# Don't process the README in the future and keep the URL list quiet.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

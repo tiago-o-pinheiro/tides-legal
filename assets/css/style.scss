@@ -1,0 +1,431 @@
+---
+# Front matter required so Jekyll processes this file.
+---
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Tides Legal — visual register matched to the Tides mobile app.
+   Tokens pulled from packages/styleguide/src/{palette,typography,radius,
+   spacing}.ts. The legal site uses the app's "warm paper" register
+   (Mediterranean Sandstone canvas + warm-brown ink) because the docs are
+   long-form prose; the dark-canvas register the orb sits on is the wrong
+   surface for continuous reading. Dark mode is the mirror — dark canvas,
+   cream ink — via prefers-color-scheme.
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Light (warm paper) — colors.onboardingLight.* */
+  --bg:               #F2F1EF;        /* canvas */
+  --bg-end:           #EDE8DC;        /* canvasGradient */
+  --surface:          rgba(252,248,242,0.88);  /* material.cardElevated */
+  --surface-card:     rgba(250,245,237,0.78);  /* material.card */
+  --ink:              #332C24;        /* ink */
+  --ink-secondary:    rgba(51,44,36,0.72); /* matches textWarm.secondary */
+  --ink-tertiary:     rgba(51,44,36,0.54); /* matches textWarm.tertiary */
+  --hairline:         rgba(51,44,36,0.16); /* onboardingLight.hairline */
+  --hairline-strong:  rgba(51,44,36,0.28); /* onboardingLight.hairlineStrong */
+  --press-wash:       rgba(51,44,36,0.04); /* onboardingLight.cardWashPress */
+  --shadow:           rgba(59,49,38,0.06); /* onboardingLight.cardLift */
+
+  /* Sage — the only sustained accent (colors.sage.*) */
+  --accent:           #8a9a91;        /* sage.hue */
+  --accent-ink:       rgba(138,154,145,0.85); /* sage.ink */
+  --accent-emph:      rgba(138,154,145,0.34); /* sage.emph */
+  --accent-soft:      rgba(138,154,145,0.16); /* sage.soft */
+
+  /* Type — packages/styleguide/src/typography.ts */
+  --font-felt:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-done:   'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                  Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:   ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+                  'Liberation Mono', monospace;
+
+  /* Spatial scale — packages/styleguide/src/spacing.ts (4px base) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-7: 28px; --s-8: 32px;
+  --s-9: 36px; --s-10: 40px; --s-12: 48px; --s-14: 64px;
+
+  /* Radii — packages/styleguide/src/radius.ts */
+  --r-sm: 8px; --r-md: 10px; --r-lg: 12px; --r-xl: 16px; --r-2xl: 20px;
+
+  /* Layout */
+  --measure: 36rem;  /* ~620px reading column, ~70 chars */
+  --gutter: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* Dark mode mirror — colors.background.base + colors.text.* + sage */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:               #0f1519;        /* background.base */
+    --bg-end:           #182127;        /* background.gradientStart */
+    --surface:          rgba(236,232,223,0.04); /* cream wash */
+    --surface-card:     rgba(236,232,223,0.05);
+    --ink:              #ece8df;        /* text.primary */
+    --ink-secondary:    rgba(236,232,223,0.68);
+    --ink-tertiary:     rgba(236,232,223,0.48);
+    --hairline:         rgba(236,232,223,0.10); /* hairlineCream */
+    --hairline-strong:  rgba(236,232,223,0.16); /* hairlineCreamStrong */
+    --press-wash:       rgba(236,232,223,0.04);
+    --shadow:           rgba(0,0,0,0.35);
+    /* Sage stays — same hue, same role; reads warmer on the dark canvas */
+    --accent:           #8a9a91;
+    --accent-ink:       rgba(138,154,145,0.95);
+    --accent-emph:      rgba(138,154,145,0.42);
+    --accent-soft:      rgba(138,154,145,0.18);
+  }
+}
+
+/* ─── Reset, sensible defaults ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  background-image: linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-done);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-emph);
+  color: var(--ink);
+}
+
+/* Accessibility — skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-sm);
+  font-family: var(--font-done);
+  font-weight: 500;
+  z-index: 100;
+}
+.skip-link:focus { left: var(--s-4); top: var(--s-4); }
+
+/* ─── Layout wrap ──────────────────────────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.site-header {
+  padding: var(--s-7) 0 var(--s-4);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+}
+.wordmark {
+  font-family: var(--font-felt);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.2;
+}
+.wordmark__name { font-style: italic; }
+.wordmark__sep {
+  display: inline-block;
+  margin: 0 0.45ch;
+  color: var(--ink-tertiary);
+  font-style: normal;
+}
+.wordmark__suffix {
+  font-family: var(--font-done);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.72em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  vertical-align: 0.12em;
+}
+.site-nav {
+  display: flex;
+  gap: var(--s-5);
+  font-family: var(--font-done);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.site-nav a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--accent-emph);
+  outline: none;
+}
+
+/* ─── Main article (prose) ─────────────────────────────────────────────── */
+main {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-14);
+}
+
+.prose { color: var(--ink); }
+
+/* Headings — Cormorant carries what is felt. */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-felt);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin: 2.4em 0 0.6em;
+}
+.prose h1 {
+  font-size: clamp(2.1rem, 5vw, 2.85rem);
+  font-weight: 500;
+  margin-top: var(--s-4);
+  margin-bottom: var(--s-6);
+  letter-spacing: -0.015em;
+}
+.prose h1 + p {  /* lead paragraph immediately after H1 */
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+}
+.prose h2 {
+  font-size: clamp(1.55rem, 3.4vw, 1.95rem);
+  margin-top: 2.6em;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--hairline);
+}
+.prose h3 {
+  font-size: clamp(1.2rem, 2.6vw, 1.4rem);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  margin-top: 2em;
+}
+.prose h4 {
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  margin-top: 1.6em;
+}
+
+/* Body */
+.prose p {
+  margin: 0 0 1.05em;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* First paragraph after a sub-heading should feel paragraph-rhythmed,
+   not crammed against the rule. */
+.prose h2 + p, .prose h3 + p { margin-top: 0.35em; }
+
+/* Links — sage accent */
+.prose a {
+  color: var(--ink);
+  text-decoration: none;
+  background-image: linear-gradient(to right, var(--accent-emph), var(--accent-emph));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  padding-bottom: 1px;
+  transition: background-size 180ms ease, color 180ms ease;
+}
+.prose a:hover,
+.prose a:focus-visible {
+  color: var(--accent);
+  background-size: 100% 2px;
+  outline: none;
+}
+
+/* Strong & em */
+.prose strong { font-weight: 600; color: var(--ink); }
+.prose em { font-style: italic; }
+
+/* Lists */
+.prose ul, .prose ol {
+  margin: 0 0 1.2em;
+  padding-left: 1.4em;
+}
+.prose li {
+  margin: 0 0 0.55em;
+  padding-left: 0.25em;
+  line-height: 1.65;
+}
+.prose ul li::marker { color: var(--accent); }
+.prose ol li::marker { color: var(--ink-tertiary); font-variant-numeric: tabular-nums; }
+.prose li > ul, .prose li > ol { margin-top: 0.4em; }
+
+/* Blockquotes — "warm paper" card register.
+   The app uses material.card (rgba(250,245,237,0.78)) + hairline at 0.16
+   for soft container surfaces. We mirror that here for the "In short" and
+   "Working draft" callouts — they read as a leaf lifted from the page. */
+.prose blockquote {
+  margin: 1.6em 0;
+  padding: var(--s-5) var(--s-6);
+  background: var(--surface-card);
+  border-left: 3px solid var(--accent-emph);
+  border-radius: var(--r-md);
+  box-shadow: 0 1px 0 var(--hairline);
+  color: var(--ink-secondary);
+  font-family: var(--font-felt);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+.prose blockquote p { margin: 0 0 0.65em; }
+.prose blockquote p:last-child { margin-bottom: 0; }
+.prose blockquote strong {
+  font-family: var(--font-done);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-block;
+  margin-right: 0.4em;
+}
+.prose blockquote a {
+  background-image: linear-gradient(to right, var(--accent-emph), var(--accent-emph));
+}
+
+/* Horizontal rule — a quiet seam, never a divider with weight. */
+.prose hr {
+  border: 0;
+  margin: var(--s-10) 0;
+  height: 1px;
+  background: var(--hairline);
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4em 0 1.6em;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+.prose th, .prose td {
+  text-align: left;
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.prose th {
+  font-family: var(--font-done);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  border-bottom-color: var(--hairline-strong);
+}
+.prose tbody tr:last-child td { border-bottom: 0; }
+
+/* Code */
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--accent-soft);
+  color: var(--ink);
+  padding: 0.12em 0.42em;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  background: var(--surface-card);
+  color: var(--ink);
+  padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-md);
+  border: 1px solid var(--hairline);
+  overflow-x: auto;
+  line-height: 1.55;
+  margin: 1.2em 0;
+}
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  white-space: pre;
+}
+
+/* ─── Site footer ──────────────────────────────────────────────────────── */
+.site-footer {
+  margin-top: var(--s-14);
+  padding: var(--s-7) 0 var(--s-10);
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-done);
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+}
+.site-footer p { margin: 0 0 var(--s-2); }
+.site-footer .muted { color: var(--ink-tertiary); font-size: 0.8rem; }
+.site-footer .dot { color: var(--ink-tertiary); margin: 0 0.5em; }
+.site-footer a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-emph);
+}
+.site-footer a:hover, .site-footer a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  outline: none;
+}
+
+/* ─── Focus rings ──────────────────────────────────────────────────────── */
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Reduced motion ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
+
+/* ─── Small screens — generous, never cramped ──────────────────────────── */
+@media (max-width: 480px) {
+  html, body { font-size: 16.5px; }
+  .site-header { padding-top: var(--s-5); }
+  .site-header .wrap { gap: var(--s-3); }
+  .wordmark { font-size: 1.35rem; }
+  .site-nav { font-size: 0.78rem; gap: var(--s-4); }
+  .prose blockquote { padding: var(--s-4) var(--s-5); }
+  .prose table { font-size: 0.88rem; }
+  .prose th, .prose td { padding: var(--s-2) var(--s-3); }
+}
+
+/* Very wide screens — keep measure tight. The legal column never widens. */
+@media (min-width: 1100px) {
+  .site-header .wrap, main.wrap, .site-footer .wrap { max-width: var(--measure); }
+}

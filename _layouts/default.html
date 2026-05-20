@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="index, follow" />
+  <meta name="referrer" content="no-referrer" />
+
+  <title>{% if page.title %}{{ page.title }} · Tides{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ site.description }}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+  />
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="{{ '/' | relative_url }}" class="wordmark" aria-label="Tides — Legal home">
+        <span class="wordmark__name">Tides</span>
+        <span class="wordmark__sep" aria-hidden="true">·</span>
+        <span class="wordmark__suffix">Legal</span>
+      </a>
+      <nav class="site-nav" aria-label="Legal documents">
+        <a href="{{ '/privacy.html' | relative_url }}">Privacy</a>
+        <a href="{{ '/terms.html' | relative_url }}">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" role="main">
+    <article class="prose">
+      {{ content }}
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        Tides is a private mood-and-sky journal.
+        <span class="dot" aria-hidden="true">·</span>
+        Contact: <a href="mailto:tiopioli89@gmail.com">tiopioli89@gmail.com</a>
+      </p>
+      <p class="muted">
+        Controller: Tiago Oliver Pinheiro Oliveira, Spain.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
