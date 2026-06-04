@@ -1,0 +1,785 @@
+
+<!-- ─────────────────────────────────────────────────────────────────────────
+  Beta-tester recruitment page. Dark-only, app-like, four languages.
+  All visible copy carries a data-i18n / data-i18n-ph key; the dictionary and
+  behavior live in the <script> at the bottom. English is the in-markup
+  default so the page is fully legible with JS disabled.
+────────────────────────────────────────────────────────────────────────── -->
+
+<header class="topbar">
+  <a href="#main" class="wordmark" aria-label="Tides">
+    <span class="crescent" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="26" height="26" role="img" aria-hidden="true">
+        <defs>
+          <mask id="crescent-mark">
+            <rect width="40" height="40" fill="black" />
+            <circle cx="20" cy="20" r="14" fill="white" />
+            <circle cx="13" cy="18" r="14" fill="black" />
+          </mask>
+        </defs>
+        <circle cx="20" cy="20" r="14" fill="none" stroke="#ece8df" stroke-opacity="0.16" stroke-width="1" />
+        <circle cx="20" cy="20" r="14" fill="#8a9a91" fill-opacity="0.85" mask="url(#crescent-mark)" />
+      </svg>
+    </span>
+    <span>Tides</span>
+  </a>
+
+  <div class="langswitch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" aria-current="true">EN</button>
+    <button type="button" data-lang-btn="es" aria-current="false">ES</button>
+    <button type="button" data-lang-btn="pt" aria-current="false">PT</button>
+    <button type="button" data-lang-btn="ca" aria-current="false">CA</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Closed beta · 14 days</p>
+      <h1 class="hero__title" data-i18n="hero.title">Help shape Tides.</h1>
+      <p class="hero__sub" data-i18n="hero.sub">
+        Tides is a private mood-and-sky journal. Before it reaches everyone, I need
+        a small circle of people to live with it for two weeks and tell me how it feels.
+      </p>
+      <div class="cta-row">
+        <a href="#signup" class="btn btn--primary" data-i18n="hero.cta">Become a tester</a>
+        <a href="#how" class="btn btn--ghost" data-i18n="hero.secondary">See how it works</a>
+      </div>
+      <p class="hero__note" data-i18n="hero.note">
+        Around 14 spots · 14 days · then Tides+ free, forever.
+      </p>
+      <p class="hero__platform">
+        <span class="badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M6 18a1 1 0 0 0 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1a1 1 0 0 0 1-1V9H6v9ZM3.5 9A1.5 1.5 0 0 0 2 10.5v5a1.5 1.5 0 0 0 3 0v-5A1.5 1.5 0 0 0 3.5 9Zm17 0a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 3 0v-5A1.5 1.5 0 0 0 20.5 9Zm-3.3-5.6 1.04-1.9a.35.35 0 0 0-.61-.34l-1.06 1.93a6.3 6.3 0 0 0-5.14 0L7.37 1.16a.35.35 0 0 0-.61.34l1.04 1.9A5.86 5.86 0 0 0 6 8h12a5.86 5.86 0 0 0-2.8-4.6ZM9.5 6.2a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Zm5 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Z"/></svg>
+          <span data-i18n="hero.platform.badge">Android only</span>
+        </span>
+        <span data-i18n="hero.platform.note">For now, Tides lives on Android — I'll email you the Play Store link as soon as the test is open.</span>
+      </p>
+    </div>
+
+    <div class="phone" aria-hidden="false">
+      <img src="{{ '/assets/images/screen-today.png' | relative_url }}"
+           width="280" height="607"
+           alt="The Tides Today screen: a mood orb, a moon phase, and a one-line reflection." />
+    </div>
+  </section>
+
+  <!-- ── What it is ───────────────────────────────────────────────────── -->
+  <section class="section section--narrow">
+    <p class="eyebrow" data-i18n="what.eyebrow">What it is</p>
+    <h2 class="section__title" data-i18n="what.title">A quiet place to notice how you feel.</h2>
+    <p class="section__lead" data-i18n="what.body">
+      Once a day you note your mood and a single sentence. Tides quietly remembers the
+      sky around it — the moon phase, the weather — so that, looking back, you can see
+      how your inner weather moved. No streaks, no scores, no noise. It is a reflective
+      space, not a productivity app.
+    </p>
+  </section>
+
+  <!-- ── How it works ─────────────────────────────────────────────────── -->
+  <section id="how" class="section">
+    <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+    <h2 class="section__title" data-i18n="how.title">Three unhurried screens.</h2>
+    <div class="cards">
+      <article class="card">
+        <span class="card__dot" style="color: var(--mood-good)" aria-hidden="true"></span>
+        <h3 data-i18n="how.today.title">Today</h3>
+        <p data-i18n="how.today.body">
+          One check-in: a mood and a sentence. The moon phase and weather come along on their own.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__dot" style="color: var(--mood-low)" aria-hidden="true"></span>
+        <h3 data-i18n="how.journey.title">Journey</h3>
+        <p data-i18n="how.journey.body">
+          Look back over past days. Anniversaries gently resurface — a week, a month, a year ago.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__dot" style="color: var(--mood-great)" aria-hidden="true"></span>
+        <h3 data-i18n="how.notice.title">Notice</h3>
+        <p data-i18n="how.notice.body">
+          A short, calm reading of how the sky frames the day — written to be felt, not optimized.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Why your help ────────────────────────────────────────────────── -->
+  <section class="section section--narrow">
+    <p class="eyebrow" data-i18n="why.eyebrow">Why your help</p>
+    <h2 class="section__title" data-i18n="why.title">I built this alone, and I can't finish it alone.</h2>
+    <p class="section__lead" data-i18n="why.body">
+      To open Tides on the Play Store, Google asks that at least a dozen people test it
+      for 14 days in a row. Beyond that rule, I genuinely want to know what feels off,
+      what feels right, and where the words don't land. Your two weeks decide what ships.
+    </p>
+  </section>
+
+  <!-- ── How to test ──────────────────────────────────────────────────── -->
+  <section class="section section--narrow">
+    <p class="eyebrow" data-i18n="test.eyebrow">How to test</p>
+    <h2 class="section__title" data-i18n="test.title">Five gentle steps.</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__num" aria-hidden="true">1</span>
+        <div class="step__body">
+          <h3 data-i18n="test.s1.t">Sign up below</h3>
+          <p data-i18n="test.s1.b">Fill in the short form with the email tied to your Google/Android account.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">2</span>
+        <div class="step__body">
+          <h3 data-i18n="test.s2.t">I'll get in touch</h3>
+          <p data-i18n="test.s2.b">There's nothing to install yet. As soon as the Android test is ready, I'll email you a private Play Store opt-in link.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">3</span>
+        <div class="step__body">
+          <h3 data-i18n="test.s3.t">Install Tides</h3>
+          <p data-i18n="test.s3.b">Tap the link, accept, and download Tides from the Play Store as usual.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">4</span>
+        <div class="step__body">
+          <h3 data-i18n="test.s4.t">Check in daily for 14 days</h3>
+          <p data-i18n="test.s4.b">A minute a day is plenty. Just open it, note how you feel, and move on with your day.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">5</span>
+        <div class="step__body">
+          <h3 data-i18n="test.s5.t">Tell me what you notice</h3>
+          <p data-i18n="test.s5.b">Anything that confuses, breaks, or delights you — through the group or the weekly email.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="callout">
+      <strong data-i18n="test.callout.lead">One important thing:</strong>
+      <span data-i18n="test.callout.body"> the email you give me must be the one on your Google/Android phone — Google ties the test to that exact account.</span>
+    </p>
+  </section>
+
+  <!-- ── Channels ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <p class="eyebrow" data-i18n="channels.eyebrow">Staying in touch</p>
+    <h2 class="section__title" data-i18n="channels.title">Two ways to follow along.</h2>
+    <p class="section__lead" data-i18n="channels.lead">Choose whichever feels comfortable — you'll pick in the form.</p>
+    <div class="duo">
+      <article class="panel">
+        <span class="panel__tag" data-i18n="channels.group.tag">Opt-in</span>
+        <h3 data-i18n="channels.group.title">WhatsApp group</h3>
+        <p data-i18n="channels.group.body">
+          A small, low-traffic group for quick questions and feedback. If you opt in,
+          I'll add you with the phone number you share. Leave any time.
+        </p>
+      </article>
+      <article class="panel">
+        <span class="panel__tag" data-i18n="channels.email.tag">Default</span>
+        <h3 data-i18n="channels.email.title">Weekly email</h3>
+        <p data-i18n="channels.email.body">
+          Prefer quiet? I'll send one short note a week on how the beta is going.
+          No group, no phone number needed.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Reward ───────────────────────────────────────────────────────── -->
+  <section class="reward">
+    <div class="reward__card">
+      <p class="eyebrow" data-i18n="reward.eyebrow">A thank you</p>
+      <p class="reward__plus"><span>Tides+</span>&nbsp;<span data-i18n="reward.plus">free, forever</span></p>
+      <p data-i18n="reward.body">
+        Finish the 14 days and you keep Tides+ — the richer insights and deeper sky
+        readings — at no cost, for as long as Tides exists. My way of saying thank you
+        for being here at the start.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Sign-up form ─────────────────────────────────────────────────── -->
+  <section id="signup" class="signup">
+    <p class="eyebrow" data-i18n="form.eyebrow">Take a spot</p>
+    <h2 class="section__title" data-i18n="form.title">Become a Tides tester.</h2>
+    <p class="section__lead" data-i18n="form.lead">A minute to sign up. I'll be in touch before June 9th.</p>
+
+    <div class="formcard">
+      <!--
+        Formspree (Vanilla JS / AJAX): the script below submits via fetch with
+        `Accept: application/json` and swaps in the i18n'd success state. The
+        `action` is also a valid no-JS fallback — without scripting it POSTs
+        here directly and Formspree shows its own confirmation page.
+      -->
+      <form id="beta-form"
+            action="https://formspree.io/f/xkoanlpn"
+            method="POST"
+            novalidate>
+
+        <p class="gotcha" aria-hidden="true">
+          <label>Leave this field empty
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </label>
+        </p>
+        <input type="hidden" name="_subject" value="New Tides beta tester" />
+
+        <div class="field">
+          <label for="f-name" data-i18n="form.name.label">Name <span class="req" aria-hidden="true">*</span></label>
+          <input class="input" id="f-name" name="name" type="text" required
+                 autocomplete="name"
+                 data-i18n-ph="form.name.ph" placeholder="Your name" />
+        </div>
+
+        <div class="field">
+          <label for="f-email" data-i18n="form.email.label">Email <span class="req" aria-hidden="true">*</span></label>
+          <span class="hint" data-i18n="form.email.hint">The email on your Google/Android account — I need it to add you to the test.</span>
+          <input class="input" id="f-email" name="email" type="email" required
+                 autocomplete="email"
+                 data-i18n-ph="form.email.ph" placeholder="you@gmail.com" />
+        </div>
+
+        <div class="field">
+          <label for="f-lang" data-i18n="form.lang.label">Which language will you test in? <span class="req" aria-hidden="true">*</span></label>
+          <select class="input" id="f-lang" name="test_language" required>
+            <option value="English">English</option>
+            <option value="Español">Español</option>
+            <option value="Português">Português</option>
+            <option value="Català">Català</option>
+          </select>
+        </div>
+
+        <fieldset class="fieldset">
+          <legend data-i18n="form.group.legend">Want to join the WhatsApp group? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice">
+            <label>
+              <input type="radio" name="whatsapp_group" value="Yes" required />
+              <span data-i18n="form.group.yes">Yes, add me</span>
+            </label>
+            <label>
+              <input type="radio" name="whatsapp_group" value="No (weekly email)" />
+              <span data-i18n="form.group.no">No, email me</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field hidden" id="phone-field">
+          <label for="f-phone" data-i18n="form.phone.label">Phone (with country code) <span class="req" aria-hidden="true">*</span></label>
+          <span class="hint" data-i18n="form.phone.hint">Only used to add you to the WhatsApp group.</span>
+          <input class="input" id="f-phone" name="phone" type="tel"
+                 autocomplete="tel"
+                 data-i18n-ph="form.phone.ph" placeholder="+34 600 000 000" />
+        </div>
+
+        <div class="field">
+          <label class="consent">
+            <input type="checkbox" name="consent" value="Agreed" required />
+            <span>
+              <span data-i18n="form.consent.pre">I agree to be contacted about the Tides beta, and I accept the</span>
+              <a href="{{ '/privacy.html' | relative_url }}" data-i18n="form.consent.link">Privacy Policy</a><span data-i18n="form.consent.post">.</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="formcard__submit">
+          <button type="submit" class="btn btn--primary btn--block" id="submit-btn"
+                  data-i18n="form.submit" data-i18n-sending="form.sending">Count me in</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <!-- Success state, swapped in after submit -->
+      <div class="thanks hidden" id="thanks">
+        <span class="crescent" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-hidden="true">
+            <defs>
+              <mask id="crescent-thanks">
+                <rect width="40" height="40" fill="black" />
+                <circle cx="20" cy="20" r="14" fill="white" />
+                <circle cx="13" cy="18" r="14" fill="black" />
+              </mask>
+            </defs>
+            <circle cx="20" cy="20" r="14" fill="none" stroke="#ece8df" stroke-opacity="0.16" stroke-width="1" />
+            <circle cx="20" cy="20" r="14" fill="#8a9a91" fill-opacity="0.85" mask="url(#crescent-thanks)" />
+          </svg>
+        </span>
+        <h2 data-i18n="thanks.title">You're in.</h2>
+        <p data-i18n="thanks.body">
+          Thank you for stepping in early. Watch your inbox — I'll send your private
+          opt-in link before the beta opens on June 9th.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* ── i18n dictionary ──────────────────────────────────────────────────────
+   One flat object per language, keyed by the data-i18n attributes in the page.
+   Tone mirrors the app: gentle invitations, no urgency, no exclamation marks. */
+(function () {
+  "use strict";
+
+  var I18N = {
+    "en": {
+      "hero.eyebrow": "Closed beta · 14 days",
+      "hero.title": "Help shape Tides.",
+      "hero.sub": "Tides is a private mood-and-sky journal. Before it reaches everyone, I need a small circle of people to live with it for two weeks and tell me how it feels.",
+      "hero.cta": "Become a tester",
+      "hero.secondary": "See how it works",
+      "hero.note": "Around 14 spots · 14 days · then Tides+ free, forever.",
+      "hero.platform.badge": "Android only",
+      "hero.platform.note": "For now, Tides lives on Android — I'll email you the Play Store link as soon as the test is open.",
+      "what.eyebrow": "What it is",
+      "what.title": "A quiet place to notice how you feel.",
+      "what.body": "Once a day you note your mood and a single sentence. Tides quietly remembers the sky around it — the moon phase, the weather — so that, looking back, you can see how your inner weather moved. No streaks, no scores, no noise. It is a reflective space, not a productivity app.",
+      "how.eyebrow": "How it works",
+      "how.title": "Three unhurried screens.",
+      "how.today.title": "Today",
+      "how.today.body": "One check-in: a mood and a sentence. The moon phase and weather come along on their own.",
+      "how.journey.title": "Journey",
+      "how.journey.body": "Look back over past days. Anniversaries gently resurface — a week, a month, a year ago.",
+      "how.notice.title": "Notice",
+      "how.notice.body": "A short, calm reading of how the sky frames the day — written to be felt, not optimized.",
+      "why.eyebrow": "Why your help",
+      "why.title": "I built this alone, and I can't finish it alone.",
+      "why.body": "To open Tides on the Play Store, Google asks that at least a dozen people test it for 14 days in a row. Beyond that rule, I genuinely want to know what feels off, what feels right, and where the words don't land. Your two weeks decide what ships.",
+      "test.eyebrow": "How to test",
+      "test.title": "Five gentle steps.",
+      "test.s1.t": "Sign up below",
+      "test.s1.b": "Fill in the short form with the email tied to your Google/Android account.",
+      "test.s2.t": "I'll get in touch",
+      "test.s2.b": "There's nothing to install yet. As soon as the Android test is ready, I'll email you a private Play Store opt-in link.",
+      "test.s3.t": "Install Tides",
+      "test.s3.b": "Tap the link, accept, and download Tides from the Play Store as usual.",
+      "test.s4.t": "Check in daily for 14 days",
+      "test.s4.b": "A minute a day is plenty. Just open it, note how you feel, and move on with your day.",
+      "test.s5.t": "Tell me what you notice",
+      "test.s5.b": "Anything that confuses, breaks, or delights you — through the group or the weekly email.",
+      "test.callout.lead": "One important thing:",
+      "test.callout.body": " the email you give me must be the one on your Google/Android phone — Google ties the test to that exact account.",
+      "channels.eyebrow": "Staying in touch",
+      "channels.title": "Two ways to follow along.",
+      "channels.lead": "Choose whichever feels comfortable — you'll pick in the form.",
+      "channels.group.tag": "Opt-in",
+      "channels.group.title": "WhatsApp group",
+      "channels.group.body": "A small, low-traffic group for quick questions and feedback. If you opt in, I'll add you with the phone number you share. Leave any time.",
+      "channels.email.tag": "Default",
+      "channels.email.title": "Weekly email",
+      "channels.email.body": "Prefer quiet? I'll send one short note a week on how the beta is going. No group, no phone number needed.",
+      "reward.eyebrow": "A thank you",
+      "reward.plus": "free, forever",
+      "reward.body": "Finish the 14 days and you keep Tides+ — the richer insights and deeper sky readings — at no cost, for as long as Tides exists. My way of saying thank you for being here at the start.",
+      "form.eyebrow": "Take a spot",
+      "form.title": "Become a Tides tester.",
+      "form.lead": "A minute to sign up. I'll be in touch before June 9th.",
+      "form.name.label": "Name *",
+      "form.name.ph": "Your name",
+      "form.email.label": "Email *",
+      "form.email.hint": "The email on your Google/Android account — I need it to add you to the test.",
+      "form.email.ph": "you@gmail.com",
+      "form.lang.label": "Which language will you test in? *",
+      "form.group.legend": "Want to join the WhatsApp group? *",
+      "form.group.yes": "Yes, add me",
+      "form.group.no": "No, email me",
+      "form.phone.label": "Phone (with country code) *",
+      "form.phone.hint": "Only used to add you to the WhatsApp group.",
+      "form.phone.ph": "+34 600 000 000",
+      "form.consent.pre": "I agree to be contacted about the Tides beta, and I accept the",
+      "form.consent.link": "Privacy Policy",
+      "form.consent.post": ".",
+      "form.submit": "Count me in",
+      "form.sending": "Sending…",
+      "form.err": "Something didn't quite work. Try again?",
+      "thanks.title": "You're in.",
+      "thanks.body": "Thank you for stepping in early. Watch your inbox — I'll send your private opt-in link before the beta opens on June 9th.",
+      "footer.privacy": "Privacy",
+      "footer.terms": "Terms"
+    },
+    "es": {
+      "hero.eyebrow": "Beta cerrada · 14 días",
+      "hero.title": "Ayuda a dar forma a Tides.",
+      "hero.sub": "Tides es un diario privado del ánimo y del cielo. Antes de abrirlo a todo el mundo, necesito un pequeño círculo de personas que lo usen durante dos semanas y me cuenten cómo se siente.",
+      "hero.cta": "Quiero probarlo",
+      "hero.secondary": "Ver cómo funciona",
+      "hero.note": "Unas 14 plazas · 14 días · y después Tides+ gratis, para siempre.",
+      "hero.platform.badge": "Solo en Android",
+      "hero.platform.note": "De momento Tides vive en Android — te enviaré el enlace de Play Store por correo en cuanto la prueba esté abierta.",
+      "what.eyebrow": "Qué es",
+      "what.title": "Un lugar tranquilo para notar cómo te sientes.",
+      "what.body": "Una vez al día anotas tu ánimo y una sola frase. Tides recuerda en silencio el cielo de ese momento — la fase de la luna, el tiempo — para que, al mirar atrás, veas cómo se ha movido tu clima interior. Sin rachas, sin puntuaciones, sin ruido. Es un espacio para reflexionar, no una app de productividad.",
+      "how.eyebrow": "Cómo funciona",
+      "how.title": "Tres pantallas sin prisa.",
+      "how.today.title": "Hoy",
+      "how.today.body": "Un solo registro: un ánimo y una frase. La fase de la luna y el tiempo llegan solos.",
+      "how.journey.title": "Viaje",
+      "how.journey.body": "Mira atrás en los días pasados. Los aniversarios reaparecen con suavidad — hace una semana, un mes, un año.",
+      "how.notice.title": "Eco",
+      "how.notice.body": "Una lectura breve y serena de cómo el cielo enmarca el día — escrita para sentirse, no para optimizar.",
+      "why.eyebrow": "Por qué tu ayuda",
+      "why.title": "Lo he hecho solo, y solo no puedo terminarlo.",
+      "why.body": "Para abrir Tides en Play Store, Google pide que al menos una docena de personas lo prueben 14 días seguidos. Más allá de esa regla, de verdad quiero saber qué chirría, qué encaja y dónde las palabras no llegan. Tus dos semanas deciden qué sale a la luz.",
+      "test.eyebrow": "Cómo probarlo",
+      "test.title": "Cinco pasos sin prisa.",
+      "test.s1.t": "Apúntate aquí abajo",
+      "test.s1.b": "Rellena el breve formulario con el correo de tu cuenta de Google/Android.",
+      "test.s2.t": "Me pongo en contacto contigo",
+      "test.s2.b": "Todavía no hay nada que instalar. En cuanto la prueba de Android esté lista, te envío por correo un enlace privado de Play Store para apuntarte.",
+      "test.s3.t": "Instala Tides",
+      "test.s3.b": "Toca el enlace, acepta y descarga Tides desde Play Store como siempre.",
+      "test.s4.t": "Entra cada día durante 14 días",
+      "test.s4.b": "Con un minuto al día basta. Ábrelo, anota cómo te sientes y sigue con tu día.",
+      "test.s5.t": "Cuéntame lo que notes",
+      "test.s5.b": "Cualquier cosa que te confunda, falle o te guste — por el grupo o por el correo semanal.",
+      "test.callout.lead": "Algo importante:",
+      "test.callout.body": " el correo que me des tiene que ser el de tu teléfono Google/Android — Google vincula la prueba a esa cuenta exacta.",
+      "channels.eyebrow": "Seguir en contacto",
+      "channels.title": "Dos formas de acompañar el proceso.",
+      "channels.lead": "Elige la que te resulte cómoda — lo indicas en el formulario.",
+      "channels.group.tag": "Opcional",
+      "channels.group.title": "Grupo de WhatsApp",
+      "channels.group.body": "Un grupo pequeño y tranquilo para dudas rápidas y comentarios. Si te apuntas, te añado con el número que compartas. Puedes salir cuando quieras.",
+      "channels.email.tag": "Por defecto",
+      "channels.email.title": "Correo semanal",
+      "channels.email.body": "¿Prefieres tranquilidad? Te envío una nota corta a la semana sobre cómo va la beta. Sin grupo y sin número de teléfono.",
+      "reward.eyebrow": "Un gracias",
+      "reward.plus": "gratis, para siempre",
+      "reward.body": "Termina los 14 días y conservas Tides+ — las lecturas más ricas y el cielo en profundidad — sin coste, mientras Tides exista. Mi forma de dar las gracias por estar aquí desde el principio.",
+      "form.eyebrow": "Coge tu plaza",
+      "form.title": "Hazte tester de Tides.",
+      "form.lead": "Un minuto para apuntarte. Te escribiré antes del 9 de junio.",
+      "form.name.label": "Nombre *",
+      "form.name.ph": "Tu nombre",
+      "form.email.label": "Correo *",
+      "form.email.hint": "El correo de tu cuenta de Google/Android — lo necesito para añadirte a la prueba.",
+      "form.email.ph": "tucorreo@gmail.com",
+      "form.lang.label": "¿En qué idioma vas a probarlo? *",
+      "form.group.legend": "¿Quieres unirte al grupo de WhatsApp? *",
+      "form.group.yes": "Sí, añádeme",
+      "form.group.no": "No, escríbeme",
+      "form.phone.label": "Teléfono (con prefijo) *",
+      "form.phone.hint": "Solo para añadirte al grupo de WhatsApp.",
+      "form.phone.ph": "+34 600 000 000",
+      "form.consent.pre": "Acepto que me contactes sobre la beta de Tides y acepto la",
+      "form.consent.link": "Política de Privacidad",
+      "form.consent.post": ".",
+      "form.submit": "Cuenta conmigo",
+      "form.sending": "Enviando…",
+      "form.err": "Algo no ha ido del todo bien. ¿Probamos otra vez?",
+      "thanks.title": "Ya estás dentro.",
+      "thanks.body": "Gracias por sumarte desde el principio. Echa un ojo a tu correo — te enviaré tu enlace de acceso privado antes de que la beta abra el 9 de junio.",
+      "footer.privacy": "Privacidad",
+      "footer.terms": "Términos"
+    },
+    "pt": {
+      "hero.eyebrow": "Beta fechada · 14 dias",
+      "hero.title": "Ajude a moldar o Tides.",
+      "hero.sub": "O Tides é um diário privado do seu humor e do céu. Antes de chegar a todo mundo, preciso de um pequeno grupo de pessoas para conviver com ele por duas semanas e me contar como é.",
+      "hero.cta": "Quero testar",
+      "hero.secondary": "Ver como funciona",
+      "hero.note": "Cerca de 14 vagas · 14 dias · e depois Tides+ grátis, para sempre.",
+      "hero.platform.badge": "Só no Android",
+      "hero.platform.note": "Por enquanto, o Tides vive no Android — assim que o teste abrir, envio o link da Play Store no seu e-mail.",
+      "what.eyebrow": "O que é",
+      "what.title": "Um lugar calmo para notar como você se sente.",
+      "what.body": "Uma vez por dia você anota o seu humor e uma única frase. O Tides guarda em silêncio o céu daquele momento — a fase da lua, o tempo — para que, ao olhar para trás, você perceba como o seu clima interior se moveu. Sem sequências, sem pontuações, sem ruído. É um espaço para refletir, não um app de produtividade.",
+      "how.eyebrow": "Como funciona",
+      "how.title": "Três telas sem pressa.",
+      "how.today.title": "Hoje",
+      "how.today.body": "Um único registro: um humor e uma frase. A fase da lua e o tempo vêm junto, sozinhos.",
+      "how.journey.title": "Caminho",
+      "how.journey.body": "Um olhar sobre os dias que passaram. Os aniversários ressurgem com suavidade — uma semana, um mês, um ano atrás.",
+      "how.notice.title": "Eco",
+      "how.notice.body": "Uma leitura breve e serena de como o céu emoldura o dia — escrita para ser sentida, não otimizada.",
+      "why.eyebrow": "Por que sua ajuda",
+      "why.title": "Construí isto sozinho, e sozinho não consigo terminar.",
+      "why.body": "Para abrir o Tides na Play Store, o Google pede que pelo menos uma dúzia de pessoas testem o app por 14 dias seguidos. Além dessa regra, eu quero mesmo saber o que incomoda, o que encaixa e onde as palavras não chegam. As suas duas semanas decidem o que vai pro ar.",
+      "test.eyebrow": "Como testar",
+      "test.title": "Cinco passos tranquilos.",
+      "test.s1.t": "Inscrever-se abaixo",
+      "test.s1.b": "Preencha o formulário curto com o e-mail da sua conta Google/Android.",
+      "test.s2.t": "Eu entro em contato",
+      "test.s2.b": "Ainda não há nada para instalar. Assim que o teste no Android estiver pronto, envio no seu e-mail um link privado da Play Store para entrar.",
+      "test.s3.t": "Instalar o Tides",
+      "test.s3.b": "É só tocar no link, aceitar e baixar o Tides da Play Store como de costume.",
+      "test.s4.t": "Fazer o check-in todo dia por 14 dias",
+      "test.s4.b": "Um minuto por dia já basta. Você abre, anota como se sente e segue o seu dia.",
+      "test.s5.t": "Me contar o que você notar",
+      "test.s5.b": "Qualquer coisa que confunda, quebre ou encante — pelo grupo ou pelo e-mail semanal.",
+      "test.callout.lead": "Uma coisa importante:",
+      "test.callout.body": " o e-mail que você me passar precisa ser o do seu celular Google/Android — o Google vincula o teste a essa conta exata.",
+      "channels.eyebrow": "Manter contato",
+      "channels.title": "Duas formas de acompanhar.",
+      "channels.lead": "Escolha a que for mais confortável — você indica no formulário.",
+      "channels.group.tag": "Opcional",
+      "channels.group.title": "Grupo no WhatsApp",
+      "channels.group.body": "Um grupo pequeno e tranquilo para dúvidas rápidas e feedback. Se você quiser, eu adiciono com o número que você compartilhar. Você sai quando quiser.",
+      "channels.email.tag": "Padrão",
+      "channels.email.title": "E-mail semanal",
+      "channels.email.body": "Prefere o silêncio? Envio uma nota curta por semana sobre como vai o beta. Sem grupo, sem número de telefone.",
+      "reward.eyebrow": "Um obrigado",
+      "reward.plus": "grátis, para sempre",
+      "reward.body": "Ao completar os 14 dias, você fica com o Tides+ — as leituras mais ricas e o céu em maior profundidade — sem custo, enquanto o Tides existir. Meu jeito de agradecer por estar aqui desde o começo.",
+      "form.eyebrow": "Pegar uma vaga",
+      "form.title": "Vire um tester do Tides.",
+      "form.lead": "Um minuto para se inscrever. Falo com você antes de 9 de junho.",
+      "form.name.label": "Nome *",
+      "form.name.ph": "Seu nome",
+      "form.email.label": "E-mail *",
+      "form.email.hint": "O e-mail da sua conta Google/Android — preciso dele para adicionar você ao teste.",
+      "form.email.ph": "voce@gmail.com",
+      "form.lang.label": "Em que idioma você vai testar? *",
+      "form.group.legend": "Quer entrar no grupo do WhatsApp? *",
+      "form.group.yes": "Sim, pode me adicionar",
+      "form.group.no": "Não, prefiro o e-mail",
+      "form.phone.label": "Telefone (com código do país) *",
+      "form.phone.hint": "Usado só para adicionar você ao grupo do WhatsApp.",
+      "form.phone.ph": "+55 11 90000 0000",
+      "form.consent.pre": "Concordo em receber contato sobre o beta do Tides e aceito a",
+      "form.consent.link": "Política de Privacidade",
+      "form.consent.post": ".",
+      "form.submit": "Conte comigo",
+      "form.sending": "Enviando…",
+      "form.err": "Algo não saiu como devia. Tentar de novo?",
+      "thanks.title": "Você está dentro.",
+      "thanks.body": "Obrigado por chegar cedo. Fique de olho no seu e-mail — envio o seu link privado de acesso antes de o beta abrir, em 9 de junho.",
+      "footer.privacy": "Privacidade",
+      "footer.terms": "Termos"
+    },
+    "ca": {
+      "hero.eyebrow": "Beta tancada · 14 dies",
+      "hero.title": "Ajuda a donar forma a Tides.",
+      "hero.sub": "Tides és un diari privat de l'ànim i del cel. Abans d'obrir-lo a tothom, necessito un petit cercle de persones que hi visquin dues setmanes i em diguin com se sent.",
+      "hero.cta": "Vull ser-ne tester",
+      "hero.secondary": "Mira com funciona",
+      "hero.note": "Unes 14 places · 14 dies · i després Tides+ gratis, per sempre.",
+      "hero.platform.badge": "Només Android",
+      "hero.platform.note": "Ara com ara, Tides viu a Android — t'enviaré l'enllaç de la Play Store per correu tan bon punt s'obri la prova.",
+      "what.eyebrow": "Què és",
+      "what.title": "Un lloc tranquil per notar com et sents.",
+      "what.body": "Un cop al dia anotes el teu ànim i una sola frase. Tides recorda en silenci el cel d'aquell moment — la fase de la lluna, el temps — perquè, en mirar enrere, vegis com s'ha mogut el teu clima interior. Sense ratxes, sense puntuacions, sense soroll. És un espai per reflexionar, no una app de productivitat.",
+      "how.eyebrow": "Com funciona",
+      "how.title": "Tres pantalles sense pressa.",
+      "how.today.title": "Avui",
+      "how.today.body": "Un sol registre: un ànim i una frase. La fase de la lluna i el temps vénen sols.",
+      "how.journey.title": "Camí",
+      "how.journey.body": "Mira enrere els dies passats. Els aniversaris reapareixen amb suavitat — fa una setmana, un mes, un any.",
+      "how.notice.title": "Eco",
+      "how.notice.body": "Una lectura breu i serena de com el cel emmarca el dia — escrita per sentir-la, no per optimitzar-la.",
+      "why.eyebrow": "Per què la teva ajuda",
+      "why.title": "Ho he fet sol, i sol no ho puc acabar.",
+      "why.body": "Per obrir Tides a la Play Store, Google demana que com a mínim una dotzena de persones el provin 14 dies seguits. Més enllà d'aquesta norma, vull saber de debò què grinyola, què encaixa i on les paraules no arriben. Les teves dues setmanes decideixen què es publica.",
+      "test.eyebrow": "Com provar-lo",
+      "test.title": "Cinc passos tranquils.",
+      "test.s1.t": "Apunta't aquí sota",
+      "test.s1.b": "Omple el formulari breu amb el correu lligat al teu compte de Google/Android.",
+      "test.s2.t": "Em poso en contacte amb tu",
+      "test.s2.b": "Encara no hi ha res a instal·lar. Tan bon punt la prova d'Android estigui a punt, t'enviaré per correu un enllaç privat per accedir a la Play Store.",
+      "test.s3.t": "Instal·la Tides",
+      "test.s3.b": "Toca l'enllaç, accepta i baixa Tides de la Play Store com sempre.",
+      "test.s4.t": "Entra cada dia durant 14 dies",
+      "test.s4.b": "Amb un minut al dia n'hi ha prou. Només cal obrir-lo, anotar com et sents i seguir amb el teu dia.",
+      "test.s5.t": "Explica'm el que notis",
+      "test.s5.b": "Qualsevol cosa que et confongui, falli o t'agradi — pel grup o pel correu setmanal.",
+      "test.callout.lead": "Una cosa important:",
+      "test.callout.body": " el correu que em donis ha de ser el del teu telèfon Google/Android — Google vincula la prova a aquest compte exacte.",
+      "channels.eyebrow": "Mantenir el contacte",
+      "channels.title": "Dues maneres d'acompanyar el procés.",
+      "channels.lead": "Tria la que et faci sentir còmode — ja ho triaràs al formulari.",
+      "channels.group.tag": "Opcional",
+      "channels.group.title": "Grup de WhatsApp",
+      "channels.group.body": "Un grup petit i tranquil per a dubtes ràpids i comentaris. Si t'hi apuntes, t'afegeixo amb el número que comparteixis. En pots marxar quan vulguis.",
+      "channels.email.tag": "Per defecte",
+      "channels.email.title": "Correu setmanal",
+      "channels.email.body": "Prefereixes la calma? T'envio una nota curta a la setmana sobre com va la beta. Sense grup, sense número de telèfon.",
+      "reward.eyebrow": "Un gràcies",
+      "reward.plus": "gratis, per sempre",
+      "reward.body": "Acaba els 14 dies i et quedes Tides+ — les lectures més riques i el cel en més profunditat — sense cost, mentre Tides existeixi. La meva manera d'agrair-te que hi siguis des del principi.",
+      "form.eyebrow": "Agafa una plaça",
+      "form.title": "Fes-te tester de Tides.",
+      "form.lead": "Un minut per apuntar-te. Em posaré en contacte amb tu abans del 9 de juny.",
+      "form.name.label": "Nom *",
+      "form.name.ph": "El teu nom",
+      "form.email.label": "Correu *",
+      "form.email.hint": "El correu del teu compte de Google/Android — el necessito per afegir-te a la prova.",
+      "form.email.ph": "elteucorreu@gmail.com",
+      "form.lang.label": "En quin idioma el provaràs? *",
+      "form.group.legend": "T'hi vols afegir, al grup de WhatsApp? *",
+      "form.group.yes": "Sí, afegeix-me",
+      "form.group.no": "No, escriu-me",
+      "form.phone.label": "Telèfon (amb prefix de país) *",
+      "form.phone.hint": "Només per afegir-te al grup de WhatsApp.",
+      "form.phone.ph": "+34 600 000 000",
+      "form.consent.pre": "Accepto que em contactis sobre la beta de Tides i accepto la",
+      "form.consent.link": "Política de privacitat",
+      "form.consent.post": ".",
+      "form.submit": "Compta amb mi",
+      "form.sending": "S'està enviant…",
+      "form.err": "Alguna cosa no ha acabat de rutllar. Ho tornem a provar?",
+      "thanks.title": "Ja hi ets.",
+      "thanks.body": "Gràcies per entrar-hi aviat. Mira el teu correu — t'enviaré l'enllaç d'accés privat abans que la beta s'obri el 9 de juny.",
+      "footer.privacy": "Privacitat",
+      "footer.terms": "Condicions"
+    }
+  };
+
+  var LANGS = ["en", "es", "pt", "ca"];
+  var STORE_KEY = "tides_lang";
+  // Base path Jekyll is served from ("/" at the domain root, "/sub/" under a
+  // project page). Keeps the per-language URLs correct regardless of hosting.
+  var BASE = document.documentElement.getAttribute("data-baseurl") || "/";
+  if (BASE.charAt(BASE.length - 1) !== "/") BASE += "/";
+  function langPath(lang) { return BASE + lang + "/"; }
+  var langChosenManually = false;
+
+  // A per-language URL (/es/, /pt/, …) forces that language on load, ahead of
+  // any saved preference or browser locale. The canonical /join.html leaves
+  // data-initial-lang empty and falls back to detection.
+  function forcedLang() {
+    var f = document.documentElement.getAttribute("data-initial-lang");
+    return (f && I18N[f]) ? f : null;
+  }
+  function pathToLang(p) {
+    var m = (p || "").match(/\/(en|es|pt|ca)\/?$/);
+    return m ? m[1] : null;
+  }
+  function pickInitialLang() {
+    var forced = forcedLang() || pathToLang(window.location.pathname);
+    if (forced) return forced;
+    try {
+      var saved = window.localStorage.getItem(STORE_KEY);
+      if (saved && I18N[saved]) return saved;
+    } catch (e) { /* storage may be blocked */ }
+    var nav = (navigator.language || "en").toLowerCase();
+    if (nav.indexOf("ca") === 0) return "ca";
+    if (nav.indexOf("pt") === 0) return "pt";
+    if (nav.indexOf("es") === 0) return "es";
+    return "en";
+  }
+
+  function applyLang(lang) {
+    var dict = I18N[lang] || I18N.en;
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+    document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-ph");
+      if (dict[key] != null) el.setAttribute("placeholder", dict[key]);
+    });
+
+    // <html lang> + switcher state
+    document.documentElement.setAttribute("lang", lang);
+    document.documentElement.setAttribute("data-lang", lang);
+    document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+      btn.setAttribute("aria-current", btn.getAttribute("data-lang-btn") === lang ? "true" : "false");
+    });
+
+    // Mirror the page language into the test-language select until the user
+    // overrides it themselves.
+    if (!langChosenManually) {
+      var map = { en: "English", es: "Español", pt: "Português", ca: "Català" };
+      var sel = document.getElementById("f-lang");
+      if (sel && map[lang]) sel.value = map[lang];
+    }
+
+    try { window.localStorage.setItem(STORE_KEY, lang); } catch (e) { /* ignore */ }
+    window.__tidesLang = lang;
+  }
+
+  // Keep the URL in step with the chosen language so it stays shareable
+  // (e.g. clicking ES on /join.html moves the address to /es/).
+  function updateUrl(lang) {
+    if (!I18N[lang]) return;
+    try { window.history.pushState({ lang: lang }, "", langPath(lang)); }
+    catch (e) { /* cross-origin / file:// — ignore */ }
+  }
+
+  // Language switcher
+  document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var lang = btn.getAttribute("data-lang-btn");
+      applyLang(lang);
+      updateUrl(lang);
+    });
+  });
+
+  // Back/forward between language URLs re-applies without a reload.
+  window.addEventListener("popstate", function () {
+    var lang = pathToLang(window.location.pathname);
+    if (lang) applyLang(lang);
+  });
+
+  document.getElementById("f-lang").addEventListener("change", function () {
+    langChosenManually = true;
+  });
+
+  // Conditional phone field (only when joining the WhatsApp group)
+  var phoneField = document.getElementById("phone-field");
+  var phoneInput = document.getElementById("f-phone");
+  function syncPhone() {
+    var yes = document.querySelector('input[name="whatsapp_group"][value="Yes"]');
+    var show = yes && yes.checked;
+    phoneField.classList.toggle("hidden", !show);
+    phoneInput.required = !!show;
+    if (!show) phoneInput.value = "";
+  }
+  document.querySelectorAll('input[name="whatsapp_group"]').forEach(function (r) {
+    r.addEventListener("change", syncPhone);
+  });
+
+  // Formspree submit (AJAX → inline success/error, no page navigation)
+  var form = document.getElementById("beta-form");
+  var statusEl = document.getElementById("form-status");
+  var submitBtn = document.getElementById("submit-btn");
+  var thanks = document.getElementById("thanks");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lang = window.__tidesLang || "en";
+    var dict = I18N[lang] || I18N.en;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var sendingKey = submitBtn.getAttribute("data-i18n-sending");
+    submitBtn.disabled = true;
+    submitBtn.textContent = dict[sendingKey] || "…";
+    statusEl.textContent = "";
+    statusEl.removeAttribute("data-state");
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    })
+      .then(function (res) {
+        if (res.ok) {
+          form.classList.add("hidden");
+          thanks.classList.remove("hidden");
+          thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          throw new Error("bad response");
+        }
+      })
+      .catch(function () {
+        statusEl.textContent = dict["form.err"] || "Try again?";
+        statusEl.setAttribute("data-state", "error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = dict["form.submit"] || "Submit";
+      });
+  });
+
+  // Boot
+  applyLang(pickInitialLang());
+  syncPhone();
+})();
+</script>

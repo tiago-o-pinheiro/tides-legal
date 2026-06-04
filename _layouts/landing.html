@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+  Dark-only, app-like layout for the beta-tester recruitment page (join.html).
+  Kept separate from default.html so the page escapes the legal header/nav and
+  the prose reading column. The <html lang> is rewritten by the page's i18n JS.
+-->
+<html lang="{{ page.lang | default: 'en' }}" data-lang="{{ page.lang | default: 'en' }}" data-initial-lang="{{ page.lang }}" data-baseurl="{{ '/' | relative_url }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0f1519" />
+  <meta name="robots" content="index, follow" />
+  <meta name="referrer" content="no-referrer" />
+
+  <title>{% if page.title %}{{ page.title }} · Tides{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="Help shape Tides — a private mood-and-sky journal. Join the 14-day closed beta and keep Tides+ free, forever." />
+
+  <link rel="icon" type="image/png" href="{{ '/assets/images/tides-icon.png' | relative_url }}" />
+  <link rel="apple-touch-icon" href="{{ '/assets/images/tides-icon.png' | relative_url }}" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Join the Tides Beta" />
+  <meta property="og:description" content="A private mood-and-sky journal. Test it for 14 days, keep Tides+ free, forever." />
+  <meta property="og:image" content="{{ '/assets/images/og-cover.png' | absolute_url }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+  />
+
+  <link rel="stylesheet" href="{{ '/assets/css/join.css' | relative_url }}" />
+</head>
+<body class="landing">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {{ content }}
+
+  <footer class="landing-footer">
+    <div class="landing-footer__inner">
+      <span class="crescent crescent--sm" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="20" height="20" role="img" aria-hidden="true">
+          <defs>
+            <mask id="crescent-footer">
+              <rect width="40" height="40" fill="black" />
+              <circle cx="20" cy="20" r="14" fill="white" />
+              <circle cx="13" cy="18" r="14" fill="black" />
+            </mask>
+          </defs>
+          <circle cx="20" cy="20" r="14" fill="none" stroke="#ece8df" stroke-opacity="0.16" stroke-width="1" />
+          <circle cx="20" cy="20" r="14" fill="#8a9a91" fill-opacity="0.85" mask="url(#crescent-footer)" />
+        </svg>
+      </span>
+      <p class="landing-footer__line">
+        Tides — a private mood-and-sky journal.
+        <span class="dot" aria-hidden="true">·</span>
+        <a href="mailto:tiopioli89@gmail.com">tiopioli89@gmail.com</a>
+      </p>
+      <p class="landing-footer__links">
+        <a href="{{ '/privacy.html' | relative_url }}" data-i18n="footer.privacy">Privacy</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a href="{{ '/terms.html' | relative_url }}" data-i18n="footer.terms">Terms</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
