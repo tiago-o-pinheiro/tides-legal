@@ -596,7 +596,10 @@ select.input {
   .hero__sub { margin-inline: auto; }
   .cta-row { justify-content: center; }
   .hero__platform { justify-content: center; margin-inline: auto; }
-  .phone { order: -1; }
+  /* Keep the copy + CTA first on phones; the screenshot follows so the
+     headline and "Become a tester" button are what greets visitors,
+     not a full-screen mockup that hides the rest of the page. */
+  .phone { order: 0; margin-top: var(--s-6); width: min(232px, 62vw); }
   .cards { grid-template-columns: 1fr; }
   .duo { grid-template-columns: 1fr; }
 }
